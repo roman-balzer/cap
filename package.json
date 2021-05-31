@@ -1,5 +1,5 @@
 {
-  "name": "cap",
+  "name": "cap-rbfork",
   "version": "0.2.1",
   "author": "Brian White <mscdex@mscdex.net>",
   "description": "A cross-platform binding for performing packet capturing with node.js",
