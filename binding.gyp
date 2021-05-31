@@ -1,4 +1,7 @@
 {
+  'variables': {
+    'win_delay_load_hook': 'true'
+  },
   'targets': [
     {
       'target_name': 'cap',
