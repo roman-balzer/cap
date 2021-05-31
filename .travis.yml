@@ -1,6 +1,6 @@
 os:
-  - linux
-  - osx
+- linux
+- osx
 sudo: required
 language: cpp
 addons:
@@ -21,10 +21,16 @@ env:
   - TRAVIS_NODE_VERSION="10"
   - TRAVIS_NODE_VERSION="12"
 install:
-  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
-  - node --version
-  - npm --version
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-5; export CC=gcc-5; fi
-  - $CXX --version
-  - npm install
+- rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && source
+  ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+- node --version
+- npm --version
+- if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-5; export CC=gcc-5; fi
+- "$CXX --version"
+- npm install
 script: sudo $(type -P node) test/test.js
+deploy:
+  provider: npm
+  email: roman.balzer@gmail.com
+  api_key:
+    secure: jwerOjGx2mj1yhjGBr2AIpw1ElVNgpC4Ik1/p12tgpHnG1K1zDG70lnujaG8jsfim2ep9M8zaIqRU0fefhyZtyQOaBa0kwmHUWDF5VLQy3fEPqjOpa63QhfeR+yay2u2DP1PG7eF2jZ+pHZPoGi1asIP/dSqiuebmXkXbVgSsoO+IbgWqKH4A0DH+w88RtZC7ICtUPlFXoYG+6w1AnNs9j4zvB+7rjsUQRL+yHg7DLbmekMOS11mMLjWNFzpYbCBCdxMYyW2Efe1qhnMH4Pfk2J2ZWbGyK2wyqRujn3fAQTgYT4fuV7s9L9xf1xYW7E38f94P8nV/TMwu0Ms25Gg+TUj+8672OPeGhqNRl3RibT3tqW3gJIz3vCpnDqiTS8OJOPHk78yWA0ga4NMcdCHv4kdrJc6A5vClGnwMpCgNk5jHgfCAJR9KyFf1F5Anm2NIuLzaH+nP/AaoviDXpwC6ZJGpiLonHvT1rp/mEI6fUmLUmeg7WUdJGwKpERBcvrT9JcbkVhGDElYB05+f/jNUJ7Wt6aOyGoPc6udlMkZluWaQNFWGrjXg1x0lUu3EdborT/ESNI38sUN8xPynNt+8x58ieXQ5+H/gXtB6QAZkC60mdV6LFava3Lt9y1nMrs5N9u5dWes/NxPGJvt8inOdcZH8EeCj++1KJf+XfX/afg=

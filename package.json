@@ -24,11 +24,11 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/mscdex/cap/raw/master/LICENSE"
+      "url": "http://github.com/roman-balzer/cap/raw/master/LICENSE"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/mscdex/cap.git"
+    "url": "http://github.com/roman-balzer/cap.git"
   }
 }
